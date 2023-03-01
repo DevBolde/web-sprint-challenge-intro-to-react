@@ -1,9 +1,13 @@
 // Write your Character component here
 import React from "react";
-import axios from 'axios';
 
 
-const CharacterData = (props) => {
-    console.log('this is characterData console log', props)
+const CharacterData = ({ props }) => {
+    return (
+    <>
+        <h1>characters {props}</h1>
+        <h2></h2>
+
+    </>) 
 }
 export default CharacterData;

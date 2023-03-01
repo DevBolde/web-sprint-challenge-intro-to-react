@@ -13,21 +13,30 @@ useEffect(() => {
   
   axios.get('https://swapi.dev/api/people/') 
   .then(res => {
-    console.log(res)
-      setCharacters(res.data)
+    const resMap = res.data.map(element => {
+      // console.log('element console',element)
+      const charBirth = element.birth_year;
+      const charName = element.name;
+
+      setCharacters(charBirth)
+    })
+    // console.log('res console', res.data)
+      // setCharacters()
   })
   .catch(err => {
       console.error(err)
   })
 
 }, [])
+// console.log('this is props console', props)
 
   return (
-
+    
     <div className="App">
       <h1 className="Header">Characters</h1>
-    </div>
+      <CharacterData characters={characters}/>
     
+    </div>
   );
 }
 
