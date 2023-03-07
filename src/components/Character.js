@@ -17,16 +17,20 @@ width: 60%;
 display: flex;
 justify-content: space-between;
 padding: 8px;
-border-bottom: 2px solid black;
+margin: 1%;
+border: 2px solid black;
 `
 
 const Character = (props) => {
     console.log('logging in character', props)
+  
+
+
     return (
-    <>
+    <div>
         <StyledCharacter>
-            <h2>name: {props.name}</h2>
+            <h2>name: {props.name}   D.O.B: {props.birth_year}</h2>
         </StyledCharacter>
-    </>) 
+    </div>) 
 }
 export default Character;

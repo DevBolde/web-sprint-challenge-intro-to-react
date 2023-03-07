@@ -8,7 +8,7 @@ const App = (props) => {
 
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
-const [ characters, setCharacters ] = useState('')
+const [ characters, setCharacters ] = useState([])
 // const [ birth_year, setBirth_Year ] = useState('')
 
   // Fetch characters from the API in an effect hook. Remember, anytime you have a 
@@ -18,25 +18,25 @@ const [ characters, setCharacters ] = useState('')
   useEffect(() => {
  axios.get('https://swapi.dev/api/people/')
 .then(res => {
-  const charMap = res.data.map((ele) => {
-    setCharacters(ele)
-    
-  })
-  return charMap;
-})
-.catch(err => {
+    setCharacters(res.data)
+  }).catch(err => {
   console.error(err)
 })
-}, [props.name])
-
+}, [])
+   
   return (
-    
     <div className="App">
       <h1 className="Header">Characters</h1>
-      <Character characters={characters.name} />
-    
+        {characters.map(ele => {
+          return <Character 
+          name={ele.name}
+          key={ele.height}
+          birth_year={ele.birth_year}
+          />
+        })}
     </div>
   );
+
 }
 
 export default App;
